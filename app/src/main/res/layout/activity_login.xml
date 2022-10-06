@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityLogin">
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_main"/>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_login_google"
+            android:text="GOOGLE로 로그인하기"
+            style="@style/login_button"/>
+        <Button
+            android:id="@+id/btn_login_kakao"
+            android:text="KAKAO로 로그인하기"
+            style="@style/login_button"/>
+        <Button
+            android:id="@+id/btn_login_naver"
+            android:text="NAVER로 로그인하기"
+            style="@style/login_button"/>
+        <Button
+            android:id="@+id/btn_login_apple"
+            android:text="APPLE로 로그인하기"
+            style="@style/login_button"/>
+
+    </LinearLayout>
+</RelativeLayout>
