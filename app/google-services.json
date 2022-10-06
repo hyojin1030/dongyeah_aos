@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890965762660",
+    "project_id": "dongyeah-d944c",
+    "storage_bucket": "dongyeah-d944c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890965762660:android:ac067495233c2798d9b571",
+        "android_client_info": {
+          "package_name": "com.zoo.dongyeah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890965762660-uvcnfqoumrtutcngq0uhq6mo27m7deqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzeGbjQW2w5tEqpNeW88QTDrqRLtTmWW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890965762660-uvcnfqoumrtutcngq0uhq6mo27m7deqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
