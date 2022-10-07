@@ -21,21 +21,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_login_google"
-            android:text="GOOGLE로 로그인하기"
-            style="@style/login_button"/>
-        <Button
+        <ImageButton
+            android:backgroundTint="@color/white"
             android:id="@+id/btn_login_kakao"
-            android:text="KAKAO로 로그인하기"
-            style="@style/login_button"/>
-        <Button
-            android:id="@+id/btn_login_naver"
-            android:text="NAVER로 로그인하기"
-            style="@style/login_button"/>
-        <Button
-            android:id="@+id/btn_login_apple"
-            android:text="APPLE로 로그인하기"
+            android:src="@drawable/img_kakao_login"
             style="@style/login_button"/>
 
     </LinearLayout>
