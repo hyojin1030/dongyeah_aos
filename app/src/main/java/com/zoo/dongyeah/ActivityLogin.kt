@@ -96,7 +96,7 @@ class ActivityLogin : AppCompatActivity() {
     }
 
     private fun successLogin() {
-        val intent = Intent(this, ActivityMain::class.java)
+        val intent = Intent(this, ActivityUserInfo::class.java)
         startActivity(intent)
     }
 }
