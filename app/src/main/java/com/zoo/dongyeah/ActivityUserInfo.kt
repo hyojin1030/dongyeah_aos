@@ -43,6 +43,9 @@ class ActivityUserInfo : AppCompatActivity() {
                 userEmail = user.kakaoAccount?.email.toString()
                 binding.editEmail.setText(userEmail)
 
+                val intent = Intent(this, ActivityMain::class.java)
+                startActivity(intent)
+
             }
         }
     }
