@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_review.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/custom_callout_balloon.xml" value="0.1359375" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.10520833333333333" />
       </map>
     </option>
