@@ -23,8 +23,12 @@
 
         <EditText
             android:id="@+id/edit_place"
+            android:hint="동을 입력해주세요."
+            android:inputType="text"
+            android:singleLine="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"/>
     </LinearLayout>
 
 </RelativeLayout>
