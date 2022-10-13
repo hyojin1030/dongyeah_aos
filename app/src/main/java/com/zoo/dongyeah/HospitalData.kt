@@ -39,7 +39,9 @@ data class Items(
 @Xml
 data class Item(
     @PropertyElement(name = "ykiho") var kiho: String?,
-    @PropertyElement(name = "yadmNm") var name: String?,
+    @PropertyElement(name = "yadmNm") var hosName: String?,
+    @PropertyElement(name = "clCdNm") var hosCode: String?,
+    @PropertyElement(name = "hospUrl") var hosUrl: String?,
     @PropertyElement(name = "addr") var address: String?,
     @PropertyElement(name = "telno") var tel: String?,
     @PropertyElement(name = "XPos") var xPos: Double?,

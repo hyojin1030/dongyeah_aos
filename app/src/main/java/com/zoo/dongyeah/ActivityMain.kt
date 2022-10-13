@@ -1,5 +1,6 @@
 package com.zoo.dongyeah
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -71,6 +72,8 @@ class ActivityMain : AppCompatActivity(), MapView.MapViewEventListener, POIItemE
         getHospitalData(mapPointGeo.latitude, mapPointGeo.longitude)
     }
     override fun onMapViewMoveFinished(mapView: MapView, mapPoint: MapPoint) {}
+
+
     override fun onPOIItemSelected(mapView: MapView, mapPOIItem: MapPOIItem) {}
     override fun onCalloutBalloonOfPOIItemTouched(mapView: MapView, mapPOIItem: MapPOIItem) {
         Toast.makeText(
@@ -78,6 +81,9 @@ class ActivityMain : AppCompatActivity(), MapView.MapViewEventListener, POIItemE
             "Clicked " + mapPOIItem.itemName + " Callout Balloon",
             Toast.LENGTH_SHORT
         ).show()
+
+        val intent: Intent = Intent(this, ActivityHosInfo::class.java)
+        //intent.putExtra("hosData",)
     }
 
     override fun onCalloutBalloonOfPOIItemTouched(
@@ -108,7 +114,7 @@ class ActivityMain : AppCompatActivity(), MapView.MapViewEventListener, POIItemE
 
                         for (data in arrays) {
                             mDefaultMarker = MapPOIItem()
-                            mDefaultMarker!!.itemName = data.name
+                            mDefaultMarker!!.itemName = data.hosName
                             mDefaultMarker!!.tag = 0
                             mDefaultMarker!!.mapPoint = MapPoint.mapPointWithGeoCoord(data.yPos!!, data.xPos!!)
                             mDefaultMarker!!.markerType = MapPOIItem.MarkerType.BluePin
