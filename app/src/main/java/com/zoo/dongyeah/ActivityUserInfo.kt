@@ -13,7 +13,7 @@ import com.kakao.sdk.user.UserApiClient
 import com.zoo.dongyeah.databinding.ActivityUserInfoBinding
 
 class ActivityUserInfo : AppCompatActivity() {
-    val TAG = "com.zoo.dongyeah"
+    val LOG_TAG = "com.zoo.dongyeah"
     private val firebase = Firebase.firestore
     private lateinit var binding: ActivityUserInfoBinding
 
@@ -32,10 +32,10 @@ class ActivityUserInfo : AppCompatActivity() {
     private fun setUserEmail() {
         UserApiClient.instance.me { user, error ->
             if (error != null) {
-                Log.e(TAG, "사용자 정보 요청 실패", error)
+                Log.e(LOG_TAG, "사용자 정보 요청 실패", error)
             }
             else if (user != null) {
-                Log.i(TAG, "사용자 정보 요청 성공" +
+                Log.i(LOG_TAG, "사용자 정보 요청 성공" +
                         "\n회원번호: ${user.id}" +
                         "\n이메일: ${user.kakaoAccount?.email}")
 
@@ -70,11 +70,11 @@ class ActivityUserInfo : AppCompatActivity() {
 
         firebase.collection("UserInfo").document(userEmail).set(user)
             .addOnSuccessListener{ documentRefurence ->
-                Log.d(TAG, "success")
+                Log.d(LOG_TAG, "success")
 
                 val intent = Intent(this, ActivityMain::class.java)
                 startActivity(intent)
             }
-            .addOnFailureListener { error -> Log.e(TAG, "Failed", error) }
+            .addOnFailureListener { error -> Log.e(LOG_TAG, "Failed", error) }
     }
 }

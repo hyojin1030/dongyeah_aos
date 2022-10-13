@@ -33,7 +33,6 @@ data class Body(
 data class Items(
     @Element(name = "item")
     val item: List<Item>
-
 )
 
 @Xml

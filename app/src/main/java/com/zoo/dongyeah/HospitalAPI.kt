@@ -13,10 +13,10 @@ interface HospitalAPI {
         @Query("serviceKey", encoded = true) ServiceKey: String = BuildConfig.DATA_API_KEY
     ): Call<HospitalData>
 
-
     @GET("getHospBasisList1")
     fun getSearchData(
         @Query("emdongNm") searchData: String?,
         @Query("serviceKey", encoded = true) ServiceKey: String = BuildConfig.DATA_API_KEY
     ): Call<HospitalData>
+
 }

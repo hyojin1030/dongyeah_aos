@@ -28,6 +28,8 @@ class ActivityMain : AppCompatActivity(), MapView.MapViewEventListener, POIItemE
     private var longitude = 127.005515
     private val mapRadius = 500
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -82,8 +84,11 @@ class ActivityMain : AppCompatActivity(), MapView.MapViewEventListener, POIItemE
             Toast.LENGTH_SHORT
         ).show()
 
+
         val intent: Intent = Intent(this, ActivityHosInfo::class.java)
-        //intent.putExtra("hosData",)
+        intent.putExtra("latitude", mapPOIItem.mapPoint.mapPointGeoCoord.latitude)
+        intent.putExtra("longitude", mapPOIItem.mapPoint.mapPointGeoCoord.longitude)
+        startActivity(intent)
     }
 
     override fun onCalloutBalloonOfPOIItemTouched(

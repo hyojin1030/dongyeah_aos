@@ -14,7 +14,7 @@ import com.kakao.sdk.common.model.KakaoSdkError
 import com.kakao.sdk.user.UserApiClient
 
 class ActivityLogin : AppCompatActivity() {
-    val TAG = "com.zoo.dongyeah"
+    val LOG_TAG = "com.zoo.dongyeah"
 
     private lateinit var context: Context
 
@@ -47,8 +47,6 @@ class ActivityLogin : AppCompatActivity() {
 
 
 
-        tokenCheck()
-
     }
 
     fun onClickLogin(view: View) {
@@ -60,17 +58,23 @@ class ActivityLogin : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        tokenCheck()
+
+    }
+
     private fun tokenCheck() {
         if (AuthApiClient.instance.hasToken()) {
             UserApiClient.instance.accessTokenInfo { _, error ->
                 if (error != null) {
                     if (error is KakaoSdkError && error.isInvalidTokenError() == true) {
                         //로그인 필요
-                        Log.e(TAG, "토큰 정보 보기 실패", error)
+                        Log.e(LOG_TAG, "토큰 정보 보기 실패", error)
                     }
                     else {
                         //기타 에러
-                        Log.e(TAG, error.message.toString())
+                        Log.e(LOG_TAG, error.message.toString())
                     }
                 }
                 else {
@@ -80,7 +84,7 @@ class ActivityLogin : AppCompatActivity() {
             }
         } else {
             //로그인 필요
-            Log.e(TAG, "로그인 필요")
+            Log.e(LOG_TAG, "로그인 필요")
         }
     }
 
@@ -89,9 +93,9 @@ class ActivityLogin : AppCompatActivity() {
         // 카카오톡으로 로그인 할 수 없어 카카오계정으로 로그인할 경우 사용됨
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
-                Log.e(TAG, "카카오계정으로 로그인 실패", error)
+                Log.e(LOG_TAG, "카카오계정으로 로그인 실패", error)
             } else if (token != null) {
-                Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
+                Log.i(LOG_TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
             }
         }
 
@@ -99,7 +103,7 @@ class ActivityLogin : AppCompatActivity() {
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(context)) {
             UserApiClient.instance.loginWithKakaoTalk(context) { token, error ->
                 if (error != null) {
-                    Log.e(TAG, "카카오톡으로 로그인 실패", error)
+                    Log.e(LOG_TAG, "카카오톡으로 로그인 실패", error)
 
                     // 사용자가 카카오톡 설치 후 디바이스 권한 요청 화면에서 로그인을 취소한 경우,
                     // 의도적인 로그인 취소로 보고 카카오계정으로 로그인 시도 없이 로그인 취소로 처리 (예: 뒤로 가기)
@@ -110,7 +114,7 @@ class ActivityLogin : AppCompatActivity() {
                     // 카카오톡에 연결된 카카오계정이 없는 경우, 카카오계정으로 로그인 시도
                     UserApiClient.instance.loginWithKakaoAccount(context, callback = callback)
                 } else if (token != null) {
-                    Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
+                    Log.i(LOG_TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
                 }
             }
         } else {
