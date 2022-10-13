@@ -7,6 +7,9 @@ import retrofit2.http.Query
 interface HospitalAPI {
     @GET("getHospBasisList1")
     fun getData(
-        @Query("serviceKey")ServiceKey: String = BuildConfig.DATA_API_KEY
+        @Query("xPos") xPos: Double,
+        @Query("yPos") yPos: Double,
+        @Query("radius") radius: Int,
+        @Query("serviceKey", encoded = true) ServiceKey: String = BuildConfig.DATA_API_KEY
     ): Call<HospitalData>
 }

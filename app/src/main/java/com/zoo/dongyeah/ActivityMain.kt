@@ -13,6 +13,7 @@ import net.daum.mf.map.api.MapPOIItem.CalloutBalloonButtonType
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.log
 
 class ActivityMain : AppCompatActivity(), MapView.MapViewEventListener, POIItemEventListener {
     private var mMapView: MapView? = null
@@ -95,10 +96,12 @@ class ActivityMain : AppCompatActivity(), MapView.MapViewEventListener, POIItemE
 
     private fun getHospitalData() {
         val service = RetrofitClient.getInstance().create(HospitalAPI::class.java)
-        val call = service.getData()
+        val call = service.getData(127.005515, 37.537229, 3000)
+        //val call = service.getData()
         call.enqueue(object : Callback<HospitalData> {
             override fun onResponse(call: Call<HospitalData>, response: Response<HospitalData>) {
-                Log.e(LOG_TAG, "parsing sucess")
+                if (response.isSuccessful) {
+                }
             }
 
             override fun onFailure(call: Call<HospitalData>, t: Throwable) {
